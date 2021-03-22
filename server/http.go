@@ -6,6 +6,8 @@
 package server
 
 import (
+	"Chatin/logic"
+	"fmt"
 	"net/http"
 	"os"
 	"strings"
@@ -96,8 +98,13 @@ func getTestInfo(s *httpServer, c *gin.Context) {
 	})
 }
 func login(s *httpServer, c *gin.Context) {
+	pu :=c.PostForm("user")
 
-	c.JSON(200, &c)
+	pa :=c.PostForm("password")
+	fmt.Println(pu)//空的
+	fmt.Println(pa)//空的
+	logic.Login(c)
+	c.JSON(200, c.Request.Body)
 }
 
 var httpApi = map[string]func(s *httpServer, c *gin.Context){
