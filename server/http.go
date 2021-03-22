@@ -79,7 +79,10 @@ func (s *httpServer) Run(addr, secret string, timeout int32) {
 func NewHttpClient() *httpClient {
 	return &httpClient{}
 }
-
+type LO struct{
+	user string
+	password string
+}
 func (s *httpServer) HandleActions(c *gin.Context) {
 	action := strings.ReplaceAll(c.Param("action"), "_async", "")
 	if f, ok := httpApi[action]; ok {
@@ -99,12 +102,11 @@ func getTestInfo(s *httpServer, c *gin.Context) {
 }
 func login(s *httpServer, c *gin.Context) {
 	pu :=c.PostForm("user")
-
 	pa :=c.PostForm("password")
-	fmt.Println(pu)//空的
-	fmt.Println(pa)//空的
+	fmt.Println(pu)
+	fmt.Println(pa)
 	logic.Login(c)
-	c.JSON(200, c.Request.Body)
+	c.JSON(200, logic.Login(c))
 }
 
 var httpApi = map[string]func(s *httpServer, c *gin.Context){

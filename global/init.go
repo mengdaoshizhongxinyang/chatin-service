@@ -15,6 +15,7 @@ var (
 )
 
 func Gorm() *gorm.DB {
+	DB=GormMysql()
 	return GormMysql()
 }
 
