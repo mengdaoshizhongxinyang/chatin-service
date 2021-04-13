@@ -14,9 +14,6 @@ func ERROR(msg string, errCode int16) MSG {
 	return MSG{"errCode": errCode, "message": msg}
 }
 
-func ERROR_MSG(errCode int16) string {
-	return ERROR_MSG_MAP[errCode]
-}
 
 var ERROR_MSG_MAP = map[int16]string{
 	404: "页面丢失",

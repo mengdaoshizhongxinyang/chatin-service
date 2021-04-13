@@ -100,7 +100,7 @@ func getTestInfo(s *httpServer, c *gin.Context) {
 		"message": "test",
 	})
 }
-func login(s *httpServer, c *gin.Context) {
+func getLogin(s *httpServer, c *gin.Context) {
 	pu :=c.PostForm("user")
 	pa :=c.PostForm("password")
 	fmt.Println(pu)
@@ -111,5 +111,5 @@ func login(s *httpServer, c *gin.Context) {
 
 var httpApi = map[string]func(s *httpServer, c *gin.Context){
 	"test":  getTestInfo,
-	"login": login,
+	"login": getLogin,
 }

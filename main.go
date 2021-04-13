@@ -13,6 +13,8 @@ import (
 
 func main() {
 	global.Gorm()
-	server.HttpServer.Run(fmt.Sprintf("%s:%d", "127.0.0.1", 8080), "", 6000)
+	go server.HttpServer.Run(fmt.Sprintf("%s:%d", "127.0.0.1", 8080), "", 6000)
+	//go server.WebSocketServer.Run(fmt.Sprintf("%s:%d", "127.0.0.1", 8888),"")
+	//go server.HttpServer
 	select {}
 }

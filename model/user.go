@@ -12,5 +12,6 @@ type User struct {
 	Account  string
 	Avatar   string
 	Password string
+	Config 	 string
 	global.BASE_MODEL
 }
